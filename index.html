@@ -3,323 +3,539 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deil Aries Santos | IT Support & Systems Enthusiast</title>
+  <title>Deil Aries Santos</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Custom Configuration (to match your exact purple theme) -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            purple: '#7c5cbf',
+            'purple-light': '#9b79e0',
+            'purple-glow': 'rgba(124, 92, 191, 0.35)',
+            dark: '#0d0d1a',
+            'dark-2': '#111128',
+            'dark-3': '#141430',
+            card: '#161632',
+            border: '#252550',
+            'text-muted': '#8888aa',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Your Custom CSS (Kept for specific animations and complex styles) -->
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body>
+<body class="bg-dark text-primary font-sans transition-colors duration-300">
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-logo">DS</div>
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex items-center gap-6 px-6 md:px-12 py-4 bg-dark/85 backdrop-blur-md border-b border-border/50 transition-colors">
+    <a href="#home" class="nav-logo text-2xl font-black bg-gradient-to-br from-purple to-purple-light bg-clip-text text-transparent mr-auto">DS</a>
+
+    <ul class="nav-links hidden md:flex gap-1">
+      <li><a href="#home" class="active px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Home</a></li>
+      <li><a href="#about" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">About</a></li>
+      <li><a href="#skills" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Skills</a></li>
+      <li><a href="#experience" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Experience</a></li>
+      <li><a href="#projects" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Projects</a></li>
+      <li><a href="#certifications" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Certifications</a></li>
+      <li><a href="#contact" class="px-3 py-1.5 rounded-full text-sm font-medium text-muted hover:text-primary hover:bg-purple-glow transition">Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+
+    <button class="theme-toggle w-9 h-9 rounded-full bg-card border border-border text-muted hover:text-purple-light hover:border-purple flex items-center justify-center transition" id="themeToggle">
       <i class="fas fa-moon"></i>
     </button>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+    
+    <button class="hamburger md:hidden flex flex-col gap-1.5 bg-transparent border-none p-1 cursor-pointer" id="hamburger">
+      <span class="block w-5 h-0.5 bg-primary rounded transition"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded transition"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded transition"></span>
     </button>
   </nav>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-bg-dots"></div>
-    <div class="hero-content">
-      <span class="badge">IT Support &amp; Systems Enthusiast</span>
-      <h1>Hi, I'm<br /><span class="name-white">Deil Aries</span><br /><span class="name-purple">Santos</span></h1>
-      <p class="hero-sub">Computer Science graduate with experience in IT support, system administration, and troubleshooting. Passionate about solving problems and delivering efficient IT solutions.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
-        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View Resume <i class="fas fa-eye"></i></a>
+  <!-- ===== HERO ===== -->
+  <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 px-6 md:px-16 pt-28 pb-16 relative overflow-hidden max-w-6xl mx-auto">
+    <div class="hero-bg-dots absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(var(--purple-glow)_1px,transparent_1px)] bg-[length:48px_48px]"></div>
+
+    <div class="hero-content flex-1 max-w-lg z-10 text-center md:text-left">
+      <span class="inline-block text-xs font-semibold tracking-wider uppercase text-purple-light border border-purple rounded-full px-4 py-1.5 mb-5">Developer &amp; Systems Enthusiast</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+        Hi, I'm<br />
+        <span class="text-primary">Deil Aries</span><br /> <span class="text-purple-light drop-shadow-[0_0_40px_var(--purple-glow)]">Santos</span></h1>
+      <p class="text-muted text-base leading-relaxed mb-8 max-w-md mx-auto md:mx-0">I turn ideas into responsive, user-friendly websites and web-based systems that are practical, functional, and built to last.</p>
+      
+      <div class="hero-btns flex flex-wrap gap-4 justify-center md:justify-start">
+        <a href="#projects" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-primary transition hover:-translate-y-0.5 bg-gradient-to-br from-purple to-purple-light shadow-[0_4px_20px_var(--purple-glow)]">View My Projects <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border border-border bg-transparent text-primary hover:border-purple hover:text-purple-light transition">Contact Me <i class="fas fa-eye"></i></a>
       </div>
     </div>
-    <div class="hero-photo">
-      <div class="photo-ring">
-        <img src="Profile.JPG" alt="Deil Aries Santos" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')" />
-        <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+
+    <div class="hero-photo relative shrink-0 w-64 h-64 md:w-[340px] md:h-[340px] flex items-center justify-center">
+      <div class="photo-ring w-56 h-56 md:w-[280px] md:h-[280px] rounded-full bg-gradient-to-br from-purple via-[#3b1f8c] to-purple-light p-1 relative z-10 pulse-ring">
+        <img src="/assets/profile.jpg" alt="Deil Aries Santos" class="w-full h-full rounded-full object-cover bg-dark-2 absolute top-1 left-1 w-[calc(100%-8px)] h-[calc(100%-8px)]" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')" />
+        <div class="photo-placeholder w-full h-full rounded-full bg-dark-2 flex items-center justify-center text-5xl text-purple-light hidden"><i class="fas fa-user"></i></div>
       </div>
-      <div class="floating-icon icon-code"><i class="fas fa-code"></i></div>
-      <div class="floating-icon icon-monitor"><i class="fas fa-desktop"></i></div>
-      <div class="floating-icon icon-user"><i class="fas fa-user-shield"></i></div>
-      <div class="floating-icon icon-gear"><i class="fas fa-cog"></i></div>
+      
+      <!-- Floating Icons -->
+      <div class="floating-icon absolute w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-purple-light shadow-lg float-icon top-2 left-4"><i class="fas fa-code"></i></div>
+      <div class="floating-icon absolute w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-purple-light shadow-lg float-icon top-2 right-4" style="animation-delay:1s"><i class="fas fa-desktop"></i></div>
+      <div class="floating-icon absolute w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-purple-light shadow-lg float-icon bottom-2 left-4" style="animation-delay:2s"><i class="fas fa-user-shield"></i></div>
+      <div class="floating-icon absolute w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-purple-light shadow-lg float-icon bottom-2 right-4" style="animation-delay:1.5s"><i class="fas fa-cog"></i></div>
     </div>
-    <div class="scroll-hint">
-      <div class="scroll-mouse"></div>
+
+    <!-- Scroll Hint -->
+    <div class="scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted text-xs scroll-bounce">
+      <div class="scroll-mouse w-5 h-9 border-2 border-border rounded-[11px] relative">
+        <div class="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-2 bg-purple-light rounded-full animate-[scroll-dot_1.5s_ease-in-out_infinite]"></div>
+      </div>
       <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section about-section">
-    <div class="container about-grid">
-      <div class="about-text">
-        <span class="eyebrow">Get to Know Me</span>
-        <h2>About Me</h2>
-        <p>I am a Computer Science graduate with a strong foundation in IT support, system administration, and troubleshooting. I have hands-on experience in maintaining computer systems, managing user accounts, and supporting network operations in corporate environments.</p>
-        <p>I am eager to contribute my technical skills and problem-solving abilities to help organizations achieve smooth and efficient IT operations.</p>
-        <a href="Resume.pdf" download class="btn btn-primary">Download Resume <i class="fas fa-download"></i></a>
-        <div class="about-info">
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><span>Location</span><strong>Bulacan, Philippines</strong></div></div>
-          <div class="info-item"><i class="fas fa-phone"></i><div><span>Phone</span><strong>+63 968 249 2564</strong></div></div>
-          <div class="info-item"><i class="fas fa-envelope"></i><div><span>Email</span><strong>deilariess0@gmail.com</strong></div></div>
-          <div class="info-item"><i class="fab fa-linkedin"></i><div><span>LinkedIn</span><strong><a href="https://www.linkedin.com/in/deil-aries-santos-551a7b315/" target="_blank">View Profile</a></strong></div></div>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section py-24 bg-dark-2">
+    <div class="container max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="about-text fade-in">
+        <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light mb-2 text-left">Get to Know Me</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-5 text-left">About Me</h2>
+        <p class="text-muted leading-relaxed mb-4">I'm a Computer Science graduate who enjoys turning ideas into working, real-world solutions. My background spans web development, IT support, and systems administration — which means I don't just build things, I understand how they run, break, and get fixed.</p>
+        <p class="text-muted leading-relaxed mb-8">I care about writing clean, functional code and creating tools that are simple and genuinely useful. I'm currently open to both freelance projects and full-time opportunities where I can keep growing as a developer while solving real problems for real people.</p>
+        <a href="/assets/resume.pdf" target="_blank" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-primary transition hover:-translate-y-0.5 bg-gradient-to-br from-purple to-purple-light shadow-[0_4px_20px_var(--purple-glow)]">Download Resume <i class="fas fa-download"></i></a>
+        
+        <div class="about-info grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+          <div class="info-item flex items-center gap-3 text-sm"><i class="fas fa-map-marker-alt text-purple-light w-5"></i><div><span class="text-muted text-xs block">Location</span><strong class="text-primary">San Jose Del Monte City, Bulacan, Philippines</strong></div></div>
+          <div class="info-item flex items-center gap-3 text-sm"><i class="fas fa-phone text-purple-light w-5"></i><div><span class="text-muted text-xs block">Phone</span><strong class="text-primary">+63 968 249 2564</strong></div></div>
+          <div class="info-item flex items-center gap-3 text-sm"><i class="fas fa-envelope text-purple-light w-5"></i><div><span class="text-muted text-xs block">Email</span><strong class="text-primary">deilariess0@gmail.com</strong></div></div>
+          <div class="info-item flex items-center gap-3 text-sm"><i class="fab fa-linkedin text-purple-light w-5"></i><div><span class="text-muted text-xs block">LinkedIn</span><strong><a href="https://www.linkedin.com/in/deil-aries-santos-551a7b315/" target="_blank" class="text-purple-light hover:underline">View Profile</a></strong></div></div>
         </div>
       </div>
-      <div class="about-illustration">
-        <div class="illustration-box">
-          <i class="fas fa-laptop-code"></i>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section skills-section">
-    <div class="container">
-      <span class="eyebrow">What I Do Best</span>
-      <h2>My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card" data-pct="90">
-          <div class="skill-icon"><i class="fas fa-server"></i></div>
-          <div class="skill-info">
-            <span>System Administration</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
-            <span class="pct-label">90%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="90">
-          <div class="skill-icon"><i class="fas fa-tools"></i></div>
-          <div class="skill-info">
-            <span>Troubleshooting (SW & HW)</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
-            <span class="pct-label">90%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="85">
-          <div class="skill-icon"><i class="fas fa-download"></i></div>
-          <div class="skill-info">
-            <span>Software Installation & Configuration</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-            <span class="pct-label">85%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="80">
-          <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-          <div class="skill-info">
-            <span>Networking Troubleshooting</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div>
-            <span class="pct-label">80%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="85">
-          <div class="skill-icon"><i class="fas fa-users-cog"></i></div>
-          <div class="skill-info">
-            <span>User Account Management</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-            <span class="pct-label">85%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="90">
-          <div class="skill-icon"><i class="fas fa-handshake"></i></div>
-          <div class="skill-info">
-            <span>Team Collaboration</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
-            <span class="pct-label">90%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="85">
-          <div class="skill-icon"><i class="fas fa-search"></i></div>
-          <div class="skill-info">
-            <span>Problem Analysis</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-            <span class="pct-label">85%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="90">
-          <div class="skill-icon"><i class="fas fa-eye"></i></div>
-          <div class="skill-info">
-            <span>Attention to Detail</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
-            <span class="pct-label">90%</span>
-          </div>
-        </div>
-        <div class="skill-card" data-pct="85">
-          <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
-          <div class="skill-info">
-            <span>Adaptability</span>
-            <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-            <span class="pct-label">85%</span>
-          </div>
-        </div>
+      <div class="about-illustration flex justify-center items-center">
+        <div class="w-64 h-64 bg-gradient-to-br from-card to-dark-3 border border-border rounded-full flex items-center justify-center text-7xl text-purple-light pulse-ring"><i class="fas fa-laptop-code"></i></div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section experience-section">
-    <div class="container">
-      <span class="eyebrow">My Journey</span>
-      <h2>Professional Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="job-header">
-              <div class="company-logo be-logo">BE</div>
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section py-24 bg-dark">
+    <div class="container max-w-6xl mx-auto px-6">
+      <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light text-center mb-2">What I Do Best</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary text-center mb-14">My Skills</h2>
+      
+      <!-- Technical Skills Grid (Your Existing Cards) -->
+      <div class="skills-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
+        <!-- Skill Card 1 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-server"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">System Administration</span>
+          </div>
+        </div>
+        <!-- Skill Card 2 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-tools"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Troubleshooting (SW & HW)</span>
+          </div>
+        </div>
+        <!-- Skill Card 3 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-download"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Software Installation & Config</span>
+          </div>
+        </div>
+        <!-- Skill Card 4 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-network-wired"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Networking Troubleshooting</span>
+          </div>
+        </div>
+        <!-- Skill Card 5 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-users-cog"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">User Account Management</span>
+          </div>
+        </div>
+        <!-- Skill Card 6 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-handshake"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Team Collaboration</span>
+          </div>
+        </div>
+        <!-- Skill Card 7 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-search"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Problem Analysis</span>
+          </div>
+        </div>
+        <!-- Skill Card 8 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-eye"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Attention to Detail</span>
+          </div>
+        </div>
+        <!-- Skill Card 9 -->
+        <div class="skill-card bg-card border border-border rounded-xl p-5 flex items-center gap-4 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] hover:-translate-y-1">
+          <div class="skill-icon w-11 h-11 bg-gradient-to-br from-purple to-purple-light rounded-lg flex items-center justify-center text-primary shrink-0"><i class="fas fa-sync-alt"></i></div>
+          <div class="skill-info flex-1">
+            <span class="text-sm font-semibold text-primary block">Adaptability</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== NEW: PROGRAMMING LANGUAGES & TOOLS AUTO SLIDER ===== -->
+      <div class="mt-16">
+        <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light text-center mb-2">Tech Stack & Tools</span>
+        <h3 class="text-2xl font-bold text-primary text-center mb-8">Languages, Frameworks & Platforms</h3>
+        
+        <!-- Slider Wrapper (Hidden Overflow) -->
+        <div class="relative w-full overflow-hidden py-4">
+          <!-- Sliding Track (Duplicate items for seamless loop) -->
+          <div class="flex gap-8 animate-scroll whitespace-nowrap w-max">
+            
+            <!-- Item 1: HTML -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-html5 text-4xl text-orange-500"></i>
+              <span class="text-sm font-semibold text-muted">HTML5</span>
+            </div>
+            <!-- Item 2: CSS -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+              <span class="text-sm font-semibold text-muted">CSS3</span>
+            </div>
+            <!-- Item 3: JavaScript -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-js-square text-4xl text-yellow-400"></i>
+              <span class="text-sm font-semibold text-muted">JavaScript</span>
+            </div>
+            <!-- Item 4: PHP -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-php text-4xl text-indigo-400"></i>
+              <span class="text-sm font-semibold text-muted">PHP</span>
+            </div>
+            <!-- Item 5: MySQL -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-database text-4xl text-blue-400"></i>
+              <span class="text-sm font-semibold text-muted">MySQL</span>
+            </div>
+            <!-- Item 6: Tailwind -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-wind text-4xl text-cyan-400"></i>
+              <span class="text-sm font-semibold text-muted">Tailwind CSS</span>
+            </div>
+            <!-- Item 7: Node.js -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-node-js text-4xl text-green-500"></i>
+              <span class="text-sm font-semibold text-muted">Node.js</span>
+            </div>
+
+            <!-- ===== NEW TOOLS ===== -->
+            <!-- Item 8: Git -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-git-alt text-4xl text-orange-600"></i>
+              <span class="text-sm font-semibold text-muted">Git</span>
+            </div>
+            <!-- Item 9: GitHub -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-github text-4xl text-white"></i>
+              <span class="text-sm font-semibold text-muted">GitHub</span>
+            </div>
+            <!-- Item 10: VS Code -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-code text-4xl text-blue-400"></i>
+              <span class="text-sm font-semibold text-muted">VS Code</span>
+            </div>
+            <!-- Item 11: Vercel -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-cloud text-4xl text-white"></i>
+              <span class="text-sm font-semibold text-muted">Vercel</span>
+            </div>
+
+            <!-- ===== DUPLICATE ITEMS (For seamless infinite loop) ===== -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-html5 text-4xl text-orange-500"></i>
+              <span class="text-sm font-semibold text-muted">HTML5</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+              <span class="text-sm font-semibold text-muted">CSS3</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-js-square text-4xl text-yellow-400"></i>
+              <span class="text-sm font-semibold text-muted">JavaScript</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-php text-4xl text-indigo-400"></i>
+              <span class="text-sm font-semibold text-muted">PHP</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-database text-4xl text-blue-400"></i>
+              <span class="text-sm font-semibold text-muted">MySQL</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-wind text-4xl text-cyan-400"></i>
+              <span class="text-sm font-semibold text-muted">Tailwind CSS</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-node-js text-4xl text-green-500"></i>
+              <span class="text-sm font-semibold text-muted">Node.js</span>
+            </div>
+            
+            <!-- Duplicate Tools -->
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-git-alt text-4xl text-orange-600"></i>
+              <span class="text-sm font-semibold text-muted">Git</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fab fa-github text-4xl text-white"></i>
+              <span class="text-sm font-semibold text-muted">GitHub</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-code text-4xl text-blue-400"></i>
+              <span class="text-sm font-semibold text-muted">VS Code</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-8 py-4 min-w-[140px] transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+              <i class="fas fa-cloud text-4xl text-white"></i>
+              <span class="text-sm font-semibold text-muted">Vercel</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section py-24 bg-dark-2">
+    <div class="container max-w-4xl mx-auto px-6">
+      <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light text-center mb-2">My Journey</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary text-center mb-14">Professional Experience</h2>
+      <div class="timeline flex flex-col gap-8">
+        
+        <!-- Job 1 -->
+        <div class="timeline-item flex gap-6 relative">
+          <div class="timeline-dot w-3.5 h-3.5 bg-purple rounded-full shrink-0 mt-6 shadow-[0_0_12px_var(--purple)] relative">
+            <div class="absolute top-3.5 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple to-transparent"></div>
+          </div>
+          <div class="timeline-card flex-1 bg-card border border-border rounded-xl p-6 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+            <div class="job-header flex gap-4 items-start mb-4">
+              <div class="company-logo w-12 h-12 rounded-lg flex items-center justify-center text-xs font-extrabold text-primary shrink-0 bg-gradient-to-br from-[#f59e0b] to-[#d97706]">BE</div>
               <div>
-                <span class="job-role">IT Administrator</span>
-                <h3>Bucket Economics</h3>
-                <span class="job-date">Jan 2025 – May 2026</span>
+                <span class="job-role text-xs font-bold text-purple-light uppercase tracking-wider">IT Administrator</span>
+                <h3 class="text-lg font-bold text-primary mt-1">Bucket Economics</h3>
+                <span class="job-date text-sm text-muted">Jan 2025 – May 2026</span>
               </div>
             </div>
-            <ul>
-              <li>Participated in software testing, debugging, and troubleshooting activities to identify and resolve technical issues.</li>
-              <li>Collaborated with team members to support system functionality and improve operational efficiency.</li>
-              <li>Assisted in maintaining software quality and documenting issues to ensure reliable system performance.</li>
+            <ul class="flex flex-col gap-2 pl-0">
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Participated in software testing, debugging, and troubleshooting activities to identify and resolve technical issues.</li>
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Collaborated with team members to support system functionality and improve operational efficiency.</li>
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Assisted in maintaining software quality and documenting issues to ensure reliable system performance.</li>
             </ul>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="job-header">
-              <div class="company-logo dmci-logo">DMCI</div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item flex gap-6 relative">
+          <div class="timeline-dot w-3.5 h-3.5 bg-purple rounded-full shrink-0 mt-6 shadow-[0_0_12px_var(--purple)] relative">
+            <div class="absolute top-3.5 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple to-transparent"></div>
+          </div>
+          <div class="timeline-card flex-1 bg-card border border-border rounded-xl p-6 transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)]">
+            <div class="job-header flex gap-4 items-start mb-4">
+              <div class="company-logo w-12 h-12 rounded-lg flex items-center justify-center text-[0.6rem] font-extrabold text-primary shrink-0 bg-gradient-to-br from-[#3b82f6] to-[#1d4ed8]">DMCI</div>
               <div>
-                <span class="job-role">IT Intern</span>
-                <h3>DMCI Project Developers Inc.</h3>
-                <span class="job-date">Mar 2025 – May 2025</span>
+                <span class="job-role text-xs font-bold text-purple-light uppercase tracking-wider">IT Intern</span>
+                <h3 class="text-lg font-bold text-primary mt-1">DMCI Project Developers Inc.</h3>
+                <span class="job-date text-sm text-muted">Mar 2025 – May 2025</span>
               </div>
             </div>
-            <ul>
-              <li>Assisted IT staff with troubleshooting of hardware, software, and network-related issues.</li>
-              <li>Configured and managed user accounts, system settings, and routine maintenance tasks.</li>
-              <li>Collaborated with the IT team to support office technology and operations.</li>
+            <ul class="flex flex-col gap-2 pl-0">
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Assisted IT staff with troubleshooting of hardware, software, and network-related issues.</li>
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Configured and managed user accounts, system settings, and routine maintenance tasks.</li>
+              <li class="text-sm text-muted pl-4 relative leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-purple-light">Collaborated with the IT team to support office technology and operations.</li>
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section projects-section">
-    <div class="container">
-      <span class="eyebrow">Featured Work</span>
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img">
-            <div class="project-img-placeholder"><i class="fas fa-laptop"></i></div>
-          </div>
-          <div class="project-info">
-            <span class="project-tag">Thesis Project</span>
-            <h3>Online Service Request for Clean Genie Cleaning Corp.</h3>
-            <p>A web-based system that allows customers to submit cleaning service requests online. The system manages appointments, staff assignments, and service records efficiently.</p>
-            <div class="tech-tags">
-              <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section py-24 bg-dark relative">
+    <div class="container max-w-6xl mx-auto px-6 relative">
+      <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light text-center mb-2">Featured Work</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary text-center mb-14">My Projects</h2>
+
+      <!-- MAIN WRAPPER FOR SLIDER (No overflow-hidden here!) -->
+      <div class="relative px-0 md:px-12">
+        
+        <!-- Slider Container -->
+        <div class="relative overflow-hidden rounded-xl">
+          <!-- Slider Track -->
+          <div id="projectSlider" class="flex transition-transform duration-500 ease-in-out">
+            
+            <!-- SLIDE 1: Clean Genie -->
+            <div class="min-w-full p-1.5 md:p-2">
+              <div class="project-card bg-card border border-border rounded-xl overflow-hidden transition hover:border-purple hover:shadow-[0_0_30px_var(--purple-glow)] flex flex-col h-full max-w-3xl mx-auto">
+                
+                <!-- IMAGE: object-cover + dark gradient for readability -->
+                <div class="project-img h-64 md:h-80 lg:h-96 w-full bg-dark-2 relative shrink-0">
+                  <img src="assets/clean-genie.png" alt="Clean Genie" class="w-full h-full object-cover" />
+                  <!-- Dark Gradient Overlay (Darkens bottom of image so text pops) -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-90"></div>
+                  <div class="absolute inset-0 bg-dark/20"></div>
+                  <div class="project-img-placeholder text-5xl text-purple-light opacity-50 absolute inset-0 flex items-center justify-center hidden"><i class="fas fa-laptop"></i></div>
+                </div>
+
+                <div class="project-info p-6 flex flex-col flex-1 relative z-10 -mt-8">
+                  <span class="project-tag text-[0.7rem] font-bold text-purple-light uppercase tracking-wider bg-purple-glow rounded px-2 py-1 inline-block mb-3 self-start">Thesis Project</span>
+                  <h3 class="text-lg font-bold text-primary mb-2.5 leading-tight">Online Service Request for Clean Genie</h3>
+                  <p class="text-sm text-muted leading-relaxed mb-4 flex-1">A web-based system that allows customers to submit cleaning service requests online. Manages appointments, staff assignments, and service records efficiently.</p>
+                  <div class="tech-tags flex flex-wrap gap-2 mb-5">
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">PHP</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">MySQL</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">JavaScript</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">HTML</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">CSS</span>
+                  </div>
+                  <a href="#" class="btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-lg font-semibold text-xs text-primary transition hover:-translate-y-0.5 bg-gradient-to-br from-purple to-purple-light shadow-[0_4px_20px_var(--purple-glow)] self-start mt-auto">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
             </div>
-            <a href="#" class="btn btn-primary btn-sm">View Project <i class="fas fa-arrow-right"></i></a>
+
+            <!-- SLIDE 2: Vila Magenta -->
+            <div class="min-w-full p-1.5 md:p-2">
+              <div class="project-card bg-card border border-border rounded-xl overflow-hidden transition hover:border-purple hover:shadow-[0_0_30px_var(--purple-glow)] flex flex-col h-full max-w-3xl mx-auto">
+                
+                <!-- IMAGE: object-cover + dark gradient for readability -->
+                <div class="project-img h-64 md:h-80 lg:h-96 w-full bg-dark-2 relative shrink-0">
+                  <img src="assets/vila-magenta.jpg" alt="Vila Magenta" class="w-full h-full object-cover" />
+                  <!-- Dark Gradient Overlay (Darkens bottom of image so text pops) -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-90"></div>
+                  <div class="absolute inset-0 bg-dark/20"></div>
+                  <div class="project-img-placeholder text-5xl text-purple-light opacity-50 absolute inset-0 flex items-center justify-center hidden"><i class="fas fa-tree"></i></div>
+                </div>
+
+                <div class="project-info p-6 flex flex-col flex-1 relative z-10 -mt-8">
+                  <span class="project-tag text-[0.7rem] font-bold text-purple-light uppercase tracking-wider bg-purple-glow rounded px-2 py-1 inline-block mb-3 self-start">Website Project</span>
+                  <h3 class="text-lg font-bold text-primary mb-2.5 leading-tight">Vila Magenta Private Resort & Events</h3>
+                  <p class="text-sm text-muted leading-relaxed mb-4 flex-1">A static promotional website for a private resort and event venue. Showcases accommodation, event spaces, amenities, and gallery to attract potential guests and clients.</p>
+                  <div class="tech-tags flex flex-wrap gap-2 mb-5">
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">HTML</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">CSS</span>
+                    <span class="text-[0.72rem] font-semibold text-muted bg-dark-2 border border-border rounded px-2 py-1">JavaScript</span>
+                  </div>
+                  <a href="https://deilariess0.github.io/Vila-Magenta-Website/" target="_blank" class="btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-lg font-semibold text-xs text-primary transition hover:-translate-y-0.5 bg-gradient-to-br from-purple to-purple-light shadow-[0_4px_20px_var(--purple-glow)] self-start mt-auto">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- NAVIGATION BUTTONS (Placed OUTSIDE the overflow-hidden container) -->
+        <button id="prevProject" class="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-6 z-20 w-10 h-10 bg-card/80 border border-border rounded-full flex items-center justify-center text-muted hover:text-primary hover:border-purple transition shadow-lg backdrop-blur-sm">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextProject" class="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-6 z-20 w-10 h-10 bg-card/80 border border-border rounded-full flex items-center justify-center text-muted hover:text-primary hover:border-purple transition shadow-lg backdrop-blur-sm">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Pagination Dots -->
+        <div id="projectDots" class="flex justify-center gap-2 mt-6"></div>
+
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="section certs-section">
-    <div class="container">
-      <span class="eyebrow">My Credentials</span>
-      <h2>Certifications</h2>
-      <div class="certs-grid">
-        <div class="cert-card">
-          <div class="cert-logo oracle-logo">ORACLE<br/><small>Academy</small></div>
-          <div class="cert-info">
-            <span class="cert-org">Java Foundations</span>
-            <h3>Awarded by Oracle Academy</h3>
-            <p>Date: June 25, 2022</p>
-            <p>Instructor: Beronisa Peñar</p>
+    <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications" class="section py-24 bg-dark-2">
+    <div class="container max-w-6xl mx-auto px-6">
+      <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light text-center mb-2">My Credentials</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary text-center mb-14">Certifications</h2>
+      
+      <!-- UPDATED: Grid set to 1 column and centered -->
+      <div class="certs-grid grid grid-cols-1 justify-items-center gap-6">
+        
+        <div class="cert-card bg-card border border-border rounded-xl p-6 flex gap-4 items-center w-full max-w-lg transition hover:border-purple hover:shadow-[0_0_20px_var(--purple-glow)] relative">
+          <div class="cert-logo oracle-logo w-16 h-16 bg-[#cc0000] rounded-lg flex items-center justify-center text-[0.6rem] font-black text-primary text-center leading-tight shrink-0">
+            ORACLE<br/><span class="text-[0.5rem] font-normal block">Academy</span>
           </div>
-          <div class="cert-badge"><i class="fas fa-medal"></i></div>
+          <div class="cert-info flex-1">
+            <span class="cert-org text-[0.75rem] font-bold text-purple-light uppercase tracking-wider">Java Foundations</span>
+            <h3 class="text-base font-bold text-primary mt-1">Awarded by Oracle Academy</h3>
+            <p class="text-sm text-muted">Date: June 25, 2022</p>
+            <p class="text-sm text-muted">Instructor: Beronisa Peñar</p>
+          </div>
+          <div class="cert-badge text-2xl text-[#f59e0b]"><i class="fas fa-medal"></i></div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact-section">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <span class="eyebrow">Set in Touch</span>
-        <h2>Let's Connect!</h2>
-        <p>I am open to new opportunities and collaborations. Feel free to reach out!</p>
-        <div class="contact-details">
-          <div class="contact-item"><i class="fas fa-phone"></i><span>+63 968 249 2564</span></div>
-          <div class="contact-item"><i class="fas fa-envelope"></i><span>deilariess0@gmail.com</span></div>
-          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Francisco Homes Narra, San Jose Del Monte, Bulacan, 3023</span></div>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section py-24 bg-dark">
+    <div class="container max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div class="contact-info fade-in">
+        <span class="eyebrow block text-xs font-bold tracking-widest uppercase text-purple-light mb-2 text-left">Set in Touch</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Let's Connect!</h2>
+        <p class="text-muted mb-8">I am open to new opportunities and collaborations. Feel free to reach out!</p>
+        <div class="contact-details flex flex-col gap-4">
+          <div class="contact-item flex items-start gap-3 text-sm"><i class="fas fa-phone text-purple-light mt-1"></i><span class="text-muted">+63 968 249 2564</span></div>
+          <div class="contact-item flex items-start gap-3 text-sm"><i class="fas fa-envelope text-purple-light mt-1"></i><span class="text-muted">deilariess0@gmail.com</span></div>
+          <div class="contact-item flex items-start gap-3 text-sm"><i class="fas fa-map-marker-alt text-purple-light mt-1"></i><span class="text-muted">San Jose Del Monte City, Bulacan, Philippines, 3023</span></div>
         </div>
       </div>
-      <form class="contact-form" id="contactForm">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+      
+      <form class="contact-form flex flex-col gap-4 fade-in" id="contactForm">
+        <input type="text" placeholder="Your Name" required class="w-full bg-card border border-border rounded-lg p-3.5 text-primary font-inherit text-sm outline-none transition focus:border-purple focus:shadow-[0_0_0_3px_var(--purple-glow)] placeholder:text-muted" />
+        <input type="email" placeholder="Your Email" required class="w-full bg-card border border-border rounded-lg p-3.5 text-primary font-inherit text-sm outline-none transition focus:border-purple focus:shadow-[0_0_0_3px_var(--purple-glow)] placeholder:text-muted" />
+        <textarea placeholder="Your Message" rows="5" required class="w-full bg-card border border-border rounded-lg p-3.5 text-primary font-inherit text-sm outline-none transition focus:border-purple focus:shadow-[0_0_0_3px_var(--purple-glow)] placeholder:text-muted resize-y"></textarea>
+        <button type="submit" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-primary transition hover:-translate-y-0.5 bg-gradient-to-br from-purple to-purple-light shadow-[0_4px_20px_var(--purple-glow)] self-start">Send Message <i class="fas fa-paper-plane"></i></button>
       </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer bg-dark-2 border-t border-border pt-14 pb-0">
+    <div class="container max-w-6xl mx-auto px-6 flex justify-center pb-12">
+      
       <div class="footer-brand">
-        <div class="nav-logo">DS</div>
-        <p><strong>Deil Aries Santos</strong></p>
-        <p class="footer-tagline">IT Support | System Administration | Problem Solver</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/deil-aries-santos-551a7b315/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/deilariess0" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="deilariess0@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <div class="social-icons flex gap-3">
+          <a href="https://www.linkedin.com/in/deil-aries-santos-551a7b315/" aria-label="LinkedIn" target="_blank" class="w-9 h-9 bg-card border border-border rounded-lg flex items-center justify-center text-muted text-sm transition hover:border-purple hover:text-purple-light"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/deilariess0" aria-label="GitHub" target="_blank" class="w-9 h-9 bg-card border border-border rounded-lg flex items-center justify-center text-muted text-sm transition hover:border-purple hover:text-purple-light"><i class="fab fa-github"></i></a>
+          <a href="#contact" aria-label="Email" class="w-9 h-9 bg-card border border-border rounded-lg flex items-center justify-center text-muted text-sm transition hover:border-purple hover:text-purple-light"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Other Links</h4>
-        <ul>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-connect">
-        <h4>Let's Connect</h4>
-        <div class="contact-item"><i class="fas fa-phone"></i><span>+63 968 249 2564</span></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><span>deilariess0@gmail.com</span></div>
-        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Bulacan, Philippines</span></div>
-      </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Deil Aries Santos. All rights reserved.</p>
+    <div class="footer-bottom border-t border-border py-5 text-center">
+      <p class="text-sm text-muted">© 2026 Deil Aries Santos. All rights reserved.</p>
     </div>
   </footer>
 
-  <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top fixed bottom-8 right-8 w-11 h-11 bg-gradient-to-br from-purple to-purple-light text-white rounded-lg flex items-center justify-center shadow-[0_4px_20px_var(--purple-glow)] opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 z-50" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
+  <!-- Javascript -->
   <script src="script.js"></script>
 </body>
 </html>
